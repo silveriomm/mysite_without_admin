@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<script src="{{ url_for('static', filename='js/jquery-3.7.0.js') }}"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dataTables.bootstrap4.min.css') }}">
+
+<h3 class="text-center">Lista de Usuarios</h3>
+<p class="text-left">
+<a href="{{ url_for('add_usuario') }}" class="btn btn-primary btn-sm ml-3">
+  <i class="fi-xwsuxl-plus-solid"></i> 
+  Novo
+</a>
+</p>
+<div class="container-fluid">
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes style="list-style:none">
+    {% for message in messages %}
+      <li><span class="alert alert-info">{{ message }}</span></li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+  <table id="dataTable" class="table table-striped table-bordered table-sm" style="width:100%">
+    <thead>
+      <tr>
+          <th>ID</th>
+          <th>Usuário</th>
+          <th>Senha</th>
+          <th></th>
+          <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for usuario in usuarios %}
+      <tr>
+        <td> {{ usuario.id }} </td>
+        <td> {{ usuario.usuario }} </td>
+        <td> {{ usuario.senha }} </td>
+        <td class="text-center">
+          <a href="{{ url_for('edit_usuario', usuario_id=usuario.id) }}">
+            <i class="fi-xnsuxl-edit-solid" style="color:orange;"></i>
+          </a>
+        </td>
+        <td class="text-center">
+          <a class="delete-btn" href="{{ url_for('delete_usuario', usuario_id=usuario.id) }}">
+            <i class="fi-xnsuxl-trash-bin" style="color:red;"></i>
+          </a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/confirm.js') }}"></script>
+
+<script src="{{ url_for('static', filename='js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/dataTables.bootstrap4.min.js') }}"></script>
+
+
+<script>
+    $(document).ready( function () {
+
+      $('#dataTable').DataTable({
+        "language": {
+
+          "sEmptyTable": "Nenhum registro encontrado",
+          "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+          "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+          "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+          "sInfoPostFix": "",
+          "sInfoThousands": ".",
+          "sLengthMenu": "_MENU_ resultados por página",
+          "sLoadingRecords": "Carregando...",
+          "sProcessing": "Processando...",
+          "sZeroRecords": "Nenhum registro encontrado",
+          "sSearch": "Pesquisar",
+          "oPaginate": {
+            "sNext": "Próximo",
+            "sPrevious": "Anterior",
+            "sFirst": "Primeiro",
+            "sLast": "Último"
+          },
+          "oAria": {
+            "sSortAscending": ": Ordenar colunas de forma ascendente",
+            "sSortDescending": ": Ordenar colunas de forma descendente"
+          },
+          "select": {
+            "rows": {
+              "0": "Nenhuma linha selecionada",
+              "1": "Selecionado 1 linha",
+              "_": "Selecionado %d linhas"
+            }
+          },
+          "buttons": {
+            "copy": "Copiar para a área de transferência",
+            "copyTitle": "Cópia bem sucedida",
+            "copySuccess": {
+              "1": "Uma linha copiada com sucesso",
+              "_": "%d linhas copiadas com sucesso"
+            }
+          } 
+
+        }
+      });
+    } ); 
+  </script>
+
+
+{% endblock %}

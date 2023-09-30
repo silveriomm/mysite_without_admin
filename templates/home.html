@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content%}
+  <div>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes style="list-style:none">
+    {% for message in messages %}
+      <li><span class="alert alert-info">{{ message }}</span></li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+</div>
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3">Bem-vindo!</h1>
+      <p>Você está a procura de um produto específico que atenda as suas necessidades? Aqui você encontrará ótimos preços e ótima qualidade!</p>
+      <p><a class="btn btn-primary btn-lg" href="{{ url_for('quem_somos') }}" role="button">Saiba mais &raquo;</a></p>
+    </div>
+  </div>
+<!-- Begin page content -->
+<main role="main" class="flex-shrink-0">
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+    <div class="card">
+      <img style="width: 22rem;" src="{{ url_for('static', filename='img/site/produtos.jpg') }}">
+      <div class="card-body">
+        Ótimos produtos, bons preços e excelente procedência.
+      </div>
+    </div>
+    </div>
+    <div class="col-sm">
+    <div class="card">
+      <img style="width: 22rem;" src="{{ url_for('static', filename='img/site/tecnicos.jpg') }}">
+      <div class="card-body">
+        Uma equipe técnica especializada e com larga experiência.
+      </div>
+    </div>
+    </div>
+    <div class="col-sm">
+    <div class="card">
+      <img style="width: 22rem;" src="{{ url_for('static', filename='img/site/atendentes.jpg') }}">
+      <div class="card-body">
+        Atendimento profissional, sempre prontos a lhe oferecer o melhor!
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+</main>
+{% endblock %}

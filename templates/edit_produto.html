@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container" style="width: 640px;">
+  <h2>
+    Editar Produto
+  </h2>
+<form method="POST" action="">
+  <div>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes style="list-style:none">
+    {% for message in messages %}
+      <li><span class="alert alert-info">{{ message }}</span></li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+</div>
+  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+  <div class="form-group">
+    <label for="codigoid">Código</label>
+    <input type="text" class="form-control" id="codigoid" name="codigo" value="{{ produto.codigo }}">
+  </div>
+  <div class="form-group">
+    <label for="nomeid">Nome</label>
+    <input type="text" class="form-control" id="nomeid" name="nome" value="{{ produto.nome }}">
+  </div>
+  <div class="form-group">
+    <label for="descricaoid">Descrição</label>
+    <input type="text" class="form-control" id="descricaoid" name="descricao" value="{{ produto.descricao }}">
+  </div>
+  <div class="form-group">
+    <label for="precoid">Preço</label>
+    <input type="text" class="form-control" id="precoid" name="preco" value="{{ produto.preco }}">
+  </div>
+    <div class="form-group">
+    <label for="foto">Foto</label>
+    <input type="file" class="form-control-file" id="fotoid" name="foto" value="{{ produto.foto }}">
+  </div>
+  <button type="submit" class="btn btn-primary" style="width:100px;">Enviar</button>
+  <a href="{{ url_for('produtos_lista') }}" class="btn btn-secondary ml-2" style="width:100px;">Cancelar</a>
+</form>
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+@font-face {
+    font-family: Mooli;
+    src: url(../font/Mooli-Regular.ttf);
+}
+
+form {
+  margin-top: 20x;
+}
+
+.myfooter {
+  margin-top: 20px;
+}
+
+#img_carousel {
+  width: 1000px;
+  height: 400px;
+}
+
+#img_prod {
+  width: 200px;
+}

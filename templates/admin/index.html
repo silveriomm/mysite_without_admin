@@ -1,0 +1,23 @@
+{% extends 'admin/master.html' %}
+
+{% block body %}
+{{ super() }}
+<a href="{{ url_for('home')}}">
+  <h3>
+    Home
+  </h3>
+</a>
+
+<a href="{{ url_for('add_produto')}}">
+  <h3>
+    Adicionar produto
+  </h3>
+</a>
+</a>
+
+<a href="{{ url_for('add_usuario')}}">
+  <h3>
+    Adicionar usuário
+  </h3>
+</a>
+{% endblock %}

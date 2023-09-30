@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-3 mx-auto">
+
+  <h3 class="text-center">Informações do contato</h3>
+
+  <div class="card mx-auto p-2">
+  
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Nome: <strong> {{contato.nome }} </strong></li>
+    <li class="list-group-item">Cidade: <strong> {{contato.cidade }} </strong></li>
+    <li class="list-group-item">Telefone: <strong> {{contato.telefone }} </strong></li>
+    <li class="list-group-item">Email: <strong> {{contato.email }} </strong></li>
+    <li class="list-group-item">Status: <strong> {{ 'Atendida' if contato.status == 1 else 'Não atendida' }} </strong></li>
+  </ul>
+
+  <textarea rows="6">{{ contato.mensagem }}</textarea>
+
+  <a href="{{ url_for('contatos_lista') }}" class="btn btn-secondary mt-2" style="width:100px;">Cancelar</a>
+
+  </div>
+</div>
+
+{% endblock %}

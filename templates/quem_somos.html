@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img id="img_carousel" src="{{ url_for('static', filename='img/site/edificio-1.jpg') }}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img id="img_carousel" src="{{ url_for('static', filename='img/site/fab_interior.jpg') }}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img id="img_carousel" src="{{ url_for('static', filename='img/site/fabrica.jpg') }}" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8">
+      <h2>
+        Quem somos
+      </h2>
+      Nestlé S.A. é uma empresa transnacional suíça do setor de alimentos e bebidas com sede em Vevey, Vaud, na Suíça. Foi considerada a maior empresa de alimentos do mundo, medida por receitas e por outras métricas, nos anos de 2014, 2015 e 2016. Ela foi classificada no 72.º lugar na Fortune Global 500 em 2014[7] e na 33.ª posição na edição 2016 da Forbes Global 2000 na lista das maiores empresas públicas.
+
+Os produtos da Nestlé incluem alimentos para bebês, alimentos médicos, água engarrafada, cereais matinais, café e chá, produtos de confeitaria, produtos lácteos, sorvetes, alimentos congelados, alimentos para animais de estimação e lanches. Vinte e nove das marcas da Nestlé têm vendas anuais de mais de 1 bilhão de francos suíços (cerca de 1,1 bilhão de dólares),[9] como Nespresso, Nescafé, Kit Kat, Smarties, Nesquik, Stouffer's, Vittel e Maggi. A Nestlé possui 447 fábricas, opera em 194 países e emprega cerca de 339 mil pessoas.[10] É um dos principais acionistas da L'Oréal, a maior empresa de cosméticos do mundo.
+    </div>
+    <div class="col-sm-4">
+      <h2>
+        Nossa história
+      </h2>
+      A história da Nestlé começa na Suíça em 1866, quando os americanos Charles e George Page fundaram em Cham, na Suíça, a Anglo-Swiss Condensed Milk Company, fabricante do leite condensado Milkmaid, futuramente conhecido no Brasil, como Leite Moça.
+
+Em 1867, Henri Nestlé lançou a Farinha Láctea, um alimento especial para crianças, à base de cereais e leite. A partir dessa iniciativa, ocorrida na cidade de Vevey na Suíça, a Nestlé se tornou uma empresa mundial de alimentos e nutrição. </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="text-center">
+    Produtos
+  </h2>
+<div class="container">
+  <div class="row">
+    {% for produto in produtos %}
+    <div class="col-sm-4">
+      <div class="card-fluid">
+        <a href="{{ url_for('produto_detalhe', produto_id=produto.id) }}">
+          <img id="img_prod" src="static/img/produtos/{{produto.foto}}" class="img-fluid w-100 card-img-top" alt="...">
+        </a>
+        <div class="card-body text-center">
+          <h6 class="card-title">{{ produto.nome }}</h6>
+          <p class="card-text"><h4><b>R$ {{ produto.preco }}</b></h4></p>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+  </div>
+</div>
+
+{% endblock %}
